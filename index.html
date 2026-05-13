@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="刘雨泽，东北大学计算机科学与技术本科生。研究兴趣包括城市级无人机视觉语言导航、多模态空间推理、目标定位、AlphaZero 系列算法与深度强化学习。" />
+  <title>刘雨泽 | Academic Homepage</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #5c677d;
+      --light: #eef2f7;
+      --blue: #1f4e79;
+      --blue-2: #17395d;
+      --gold: #b88a32;
+      --gold-light: #f7efe0;
+      --border: #dfe5ef;
+      --shadow: 0 18px 45px rgba(24, 39, 75, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.75;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(223,229,239,.86);
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 14px 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand { font-weight: 750; color: var(--blue-2); letter-spacing: .02em; }
+    .brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
+    .nav-links a:hover { color: var(--blue); }
+
+    .hero {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(184,138,50,.18), transparent 34%),
+        linear-gradient(135deg, #10243c 0%, #1f4e79 56%, #2f6f9f 100%);
+      color: #fff;
+      padding: 96px 0 72px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 38px 38px;
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 56px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; letter-spacing: .08em; color: #f4d89a;
+      border: 1px solid rgba(244,216,154,.4); border-radius: 999px;
+      padding: 7px 14px; background: rgba(244,216,154,.1); margin-bottom: 22px;
+    }
+    h1 { font-size: clamp(42px, 7vw, 68px); line-height: 1.08; letter-spacing: .04em; margin-bottom: 8px; }
+    .english-name { font-size: 22px; color: #f4d89a; letter-spacing: .12em; margin-bottom: 22px; }
+    .hero-subtitle { color: rgba(255,255,255,.88); font-size: 17px; margin-bottom: 24px; max-width: 680px; }
+    .hero-subtitle strong { color: #f4d89a; font-weight: 650; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 24px 0 30px; }
+    .chip {
+      font-size: 13px; padding: 7px 12px; border-radius: 999px;
+      color: rgba(255,255,255,.92); background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+    }
+    .chip.gold { color: #f7dfab; background: rgba(184,138,50,.22); border-color: rgba(247,223,171,.36); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 42px; padding: 9px 16px; border-radius: 10px;
+      font-size: 14px; font-weight: 650; border: 1px solid rgba(255,255,255,.26);
+      background: rgba(255,255,255,.1); color: #fff;
+    }
+    .button.primary { background: #f4d89a; color: #10243c; border-color: #f4d89a; }
+    .profile-card {
+      background: rgba(255,255,255,.11); border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 24px 70px rgba(0,0,0,.18); border-radius: 24px; padding: 24px;
+    }
+    .avatar {
+      width: 118px; height: 118px; margin: 0 auto 20px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(244,216,154,.96), rgba(184,138,50,.96));
+      color: #10243c; font-size: 40px; font-weight: 800; letter-spacing: .05em;
+      border: 5px solid rgba(255,255,255,.2); overflow: hidden; position: relative;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .avatar span { display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .profile-list { display: grid; gap: 13px; color: rgba(255,255,255,.88); font-size: 14px; }
+    .profile-list b { display: block; color: #f4d89a; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 650; }
+
+    section { padding: 72px 0; scroll-margin-top: 80px; }
+    .section-title { display: flex; align-items: end; gap: 16px; margin-bottom: 30px; }
+    .section-title .num { color: var(--gold); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; }
+    h2 { font-size: 31px; letter-spacing: .02em; color: var(--ink); }
+    .section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); margin-bottom: 10px; }
+
+    .overview-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 22px; }
+    .card {
+      background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 28px;
+    }
+    .lead { color: #374257; font-size: 16px; margin-bottom: 16px; }
+    .muted { color: var(--muted); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .stat { background: #f7f9fc; border: 1px solid var(--border); border-radius: 15px; padding: 18px; }
+    .stat .label { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .stat .value { color: var(--blue); font-size: 24px; font-weight: 800; line-height: 1.2; }
+    .stat .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    .highlight-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 22px; }
+    .highlight { background: var(--paper); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    .highlight b { display: block; color: var(--blue); font-size: 18px; margin-bottom: 5px; }
+    .highlight span { display: block; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .timeline { display: grid; gap: 22px; }
+    .project { position: relative; overflow: hidden; }
+    .project::before { content: ""; position: absolute; left: 0; top: 0; width: 5px; height: 100%; background: linear-gradient(180deg, var(--blue), var(--gold)); }
+    .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; margin-bottom: 12px; padding-left: 4px; }
+    .project-type { font-size: 12px; letter-spacing: .12em; color: var(--gold); text-transform: uppercase; font-weight: 700; }
+    .project-title { font-size: 22px; line-height: 1.35; font-weight: 800; margin: 4px 0 6px; color: var(--ink); }
+    .project-meta { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .role { display: inline-flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 18px; }
+    .role span { background: var(--gold-light); color: #855f14; padding: 5px 10px; border-radius: 999px; font-size: 13px; border: 1px solid #ead8b2; }
+    .project p { color: #374257; margin-bottom: 13px; }
+    .bullets { margin-left: 20px; color: #374257; }
+    .bullets li { margin: 6px 0; }
+    .metric-line { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+    .metric { background: #eef6ff; border: 1px solid #cfe3f7; color: var(--blue); border-radius: 999px; padding: 7px 12px; font-size: 13px; font-weight: 650; }
+
+    .edu-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 22px; }
+    .courses { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 18px; }
+    .course { background: #f7f9fc; border: 1px solid var(--border); border-radius: 13px; padding: 14px 10px; text-align: center; }
+    .course b { display: block; color: var(--blue); font-size: 22px; }
+    .course span { color: var(--muted); font-size: 12px; }
+
+    .award-grid, .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .mini-card { background: var(--paper); border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
+    .mini-card .tag { display: inline-block; background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 10px; font-size: 12px; margin-bottom: 12px; }
+    .mini-card .tag.gold-tag { background: var(--gold); }
+    .mini-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .mini-card p { color: var(--muted); font-size: 14px; }
+
+    .contact-box {
+      background: linear-gradient(135deg, #10243c, #1f4e79); color: #fff; border-radius: 24px; padding: 34px;
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px;
+    }
+    .contact-box h2 { color: #fff; }
+    .contact-box p { color: rgba(255,255,255,.8); margin-top: 8px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+
+    footer { padding: 28px 0 42px; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    @media (max-width: 880px) {
+      .nav-links { display: none; }
+      .hero { padding: 76px 0 54px; }
+      .hero-grid, .overview-grid, .edu-grid, .contact-box { grid-template-columns: 1fr; }
+      .profile-card { max-width: 360px; }
+      .highlight-row, .award-grid, .skill-grid { grid-template-columns: repeat(2, 1fr); }
+      .courses { grid-template-columns: repeat(2, 1fr); }
+      .contact-links { justify-content: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .container, .nav-inner { padding-left: 18px; padding-right: 18px; }
+      section { padding: 52px 0; }
+      .card { padding: 22px; }
+      .highlight-row, .award-grid, .skill-grid, .stats-grid { grid-template-columns: 1fr; }
+      .project-head { display: block; }
+      .project-meta { margin-top: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#top">刘雨泽<span> / </span>Academic Homepage</a>
+      <div class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#research">科研</a>
+        <a href="#education">教育</a>
+        <a href="#awards">获奖</a>
+        <a href="#skills">技能</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">东北大学 · 计算机科学与技术</div>
+        <h1>刘雨泽</h1>
+        <div class="english-name">LIU YUZE</div>
+        <p class="hero-subtitle">
+          本科生，关注 <strong>城市级 UAV-VLN 目标定位</strong>、<strong>多模态空间推理</strong>、<strong>具身智能体感知与决策</strong>。
+          近期作为一作完成 GPOD 候选引导定位框架；同时具有 AlphaZero / MCTS / 深度强化学习方向的机器博弈研究经历。
+        </p>
+        <div class="chips">
+          <span class="chip gold">UAV-VLN</span>
+          <span class="chip gold">VLM Spatial Reasoning</span>
+          <span class="chip">Target Localization</span>
+          <span class="chip">Object Detection</span>
+          <span class="chip">Embodied AI</span>
+          <span class="chip">AlphaZero / Deep RL</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:liuRainz@163.com">联系邮箱</a>
+          <a class="button" href="#research">查看科研经历</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="个人概览">
+        <div class="avatar">
+          <img src="images/avatar.jpg" alt="刘雨泽" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span style="display:none;">刘</span>
+        </div>
+        <div class="profile-list">
+          <div><b>GPA / Rank</b>3.9 / 5.0 · 26 / 196（前 13.32%）</div>
+          <div><b>Honors</b>国家奖学金 · 校综合二等奖学金</div>
+          <div><b>Contact</b><a href="mailto:liuRainz@163.com">liuRainz@163.com</a><br />186-1546-0658</div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-title"><span class="num">00 /</span><h2>关于我</h2></div>
+        <div class="overview-grid">
+          <div class="card">
+            <p class="lead">
+              我是东北大学秦皇岛分校计算机科学与技术专业本科生，目前以多模态模型在开放城市空间中的目标定位与空间推理为主要研究方向，同时持续关注深度强化学习与机器博弈。
+            </p>
+            <p class="muted">
+              在 GPOD 项目中，我较完整地经历了问题定义、方法设计、核心代码实现、实验评测、消融分析和论文写作流程；在五子棋深度强化学习工作中，也接触了 AlphaZero 范式、MCTS-DNN、威胁空间搜索和消融实验设计。除了科研工作，我也参与学生工作与竞赛组织，能够在课程学习、科研实验、竞赛和团队协作之间保持较稳定的推进节奏。
+            </p>
+          </div>
+          <div class="card">
+            <div class="stats-grid">
+              <div class="stat"><div class="label">GPA</div><div class="value">3.9</div><div class="sub">/ 5.0</div></div>
+              <div class="stat"><div class="label">Rank</div><div class="value">26/196</div><div class="sub">前 13.32%</div></div>
+              <div class="stat"><div class="label">CET-6</div><div class="value">497</div><div class="sub">CET-4: 516</div></div>
+              <div class="stat"><div class="label">Scholarship</div><div class="value">国奖</div><div class="sub">2024 年国家奖学金</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-row">
+          <div class="highlight"><b>一作在投</b><span>GPOD 论文已投稿至 Drones，聚焦城市级 UAV-VLN 目标定位。</span></div>
+          <div class="highlight"><b>完整闭环</b><span>负责候选生成、推理接口、实验评测、消融分析与论文实验部分。</span></div>
+          <div class="highlight"><b>强化学习</b><span>参与 AlphaZero / MCTS-DNN / 威胁空间搜索相关研究，支撑计算机博弈国家级一等奖。</span></div>
+          <div class="highlight"><b>工程执行</b><span>具备 Python / PyTorch / Linux 实验调试与多模态模型评测经验。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" style="background:#fff;">
+      <div class="container">
+        <div class="section-title"><span class="num">01 /</span><h2>科研经历</h2></div>
+        <div class="timeline">
+          <article class="card project">
+            <div class="project-head">
+              <div>
+                <div class="project-type">First-author work · UAV-VLN · VLM</div>
+                <h3 class="project-title">GPOD：面向城市级 UAV-VLN 目标定位的候选引导推理框架</h3>
+              </div>
+              <div class="project-meta">2025.11 — 2026.04</div>
+            </div>
+            <div class="role"><span>一作</span><span>核心代码实现</span><span>实验评测</span><span>论文撰写</span></div>
+            <p>
+              面向 CityNav 城市级 UAV-VLN 上游目标定位任务，针对 VLM 在大范围城市地图中直接回归目标坐标时搜索空间大、空间关系利用不足、动态车辆缺少地图先验等问题，构建 GPOD 候选引导定位框架。
+            </p>
+            <ul class="bullets">
+              <li>静态分支：基于道路/地标锚点匹配、空间关系几何建模和软类别先验生成并排序候选目标。</li>
+              <li>动态分支：结合 YOLOv8-VisDrone 与 SAHI 切片推理生成车辆候选，并通过锚点邻域过滤与置信度排序压缩搜索范围。</li>
+              <li>个人负责 CityNav 数据解析、地图对象库读取、候选生成、Top-k 候选注入、多模态模型推理接口适配、主实验与多组消融实验。</li>
+            </ul>
+            <div class="metric-line">
+              <span class="metric">SR@20m: 15.28% → 25.61%</span>
+              <span class="metric">Mean NE: 93.59m → 63.01m</span>
+              <span class="metric">Val-Unseen SR@20m: 13.20% → 22.01%</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-head">
+              <div>
+                <div class="project-type">Game AI · AlphaZero / MCTS / Deep Reinforcement Learning</div>
+                <h3 class="project-title">引入威胁空间搜索的五子棋深度强化学习方法</h3>
+              </div>
+              <div class="project-meta">2025.01 — 2025.07</div>
+            </div>
+            <div class="role"><span>学生四作</span><span>AlphaZero 范式</span><span>MCTS-DNN</span><span>TSS / UTSS</span><span>北大中文核心</span></div>
+            <p>
+              参与团队围绕带禁手五子棋（Renju）的深度强化学习研究。该工作针对 AlphaZero 范式在复杂博弈中奖励稀疏、训练成本较高的问题，将威胁空间搜索（TSS）与 MCTS-DNN 框架结合，引入统一威胁空间搜索算法（UTSS）、威胁通道输入特征和走法过滤机制，以提升搜索效率与棋力表现。
+            </p>
+            <ul class="bullets">
+              <li>协助核心算法代码实现，参与 MCTS、威胁空间搜索与深度网络推理相关模块的调试。</li>
+              <li>参与 Target / T-UTSS / T-TC / T-MF 等消融实验的数据收集、结果整理和可视化。</li>
+              <li>参与论文部分章节撰写，并在项目中加深了对 AlphaZero、MCTS、深度强化学习和启发式搜索结合方法的理解。</li>
+            </ul>
+            <div class="metric-line">
+              <span class="metric">计算机博弈国家级一等奖</span>
+              <span class="metric">五子棋赛道全国亚军</span>
+              <span class="metric">AlphaZero / MCTS / TSS</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-head">
+              <div>
+                <div class="project-type">Enterprise Project · Time Series</div>
+                <h3 class="project-title">面向云边协同的铁路信号检测模拟量数据在线信息提取技术研究</h3>
+              </div>
+              <div class="project-meta">2025.05 — 2025.07</div>
+            </div>
+            <div class="role"><span>项目成员</span><span>数据分析</span><span>异常检测</span><span>工程评估</span></div>
+            <p>
+              面向铁路轨道电路集中监测系统的异常检测需求，参与多维时间序列数据预处理、探索性分析、无监督异常检测算法调研与测试，以及数据集构建和模型验证工作，积累了工程数据分析与实验评估经验。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-title"><span class="num">02 /</span><h2>教育背景</h2></div>
+        <div class="edu-grid">
+          <div class="card">
+            <h3 class="project-title">东北大学 · 计算机科学与技术</h3>
+            <p class="muted">计算机与通信工程学院，本科。GPA 3.9 / 5.0，专业排名 26 / 196（前 13.32%）。</p>
+            <div class="courses">
+              <div class="course"><b>98</b><span>高等数学</span></div>
+              <div class="course"><b>96</b><span>离散数学</span></div>
+              <div class="course"><b>95</b><span>数据结构</span></div>
+              <div class="course"><b>93</b><span>计算机网络</span></div>
+              <div class="course"><b>92</b><span>概率论</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="project-title">荣誉与语言能力</h3>
+            <p class="muted">国家奖学金（2024），校综合二等奖学金，创新创业奖学金，三好学生标兵，优秀团员标兵，优秀学生干部。</p>
+            <p class="muted" style="margin-top:12px;">CET-6: 497；CET-4: 516。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" style="background:#fff;">
+      <div class="container">
+        <div class="section-title"><span class="num">03 /</span><h2>竞赛获奖</h2></div>
+        <div class="award-grid">
+          <div class="mini-card"><span class="tag gold-tag">国家级</span><h3>中国大学生计算机博弈大赛</h3><p>国家级一等奖，五子棋赛道全国亚军；相关研究涉及 AlphaZero、MCTS 与威胁空间搜索。</p></div>
+          <div class="mini-card"><span class="tag gold-tag">国家级</span><h3>APMCM 亚太地区大学生数学建模竞赛</h3><p>国家级一等奖，体现建模、编程与论文写作能力。</p></div>
+          <div class="mini-card"><span class="tag">省级</span><h3>数学竞赛与数学建模</h3><p>全国大学生数学竞赛省级一等奖，全国大学生数学建模竞赛省级二等奖等。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title"><span class="num">04 /</span><h2>专业技能</h2></div>
+        <div class="skill-grid">
+          <div class="mini-card"><span class="tag">Programming</span><h3>Python / C++ / Linux</h3><p>具备实验脚本开发、数据处理、模型推理与服务器环境调试经验。</p></div>
+          <div class="mini-card"><span class="tag">Deep Learning</span><h3>PyTorch / VLM Evaluation</h3><p>熟悉多模态模型推理接口、实验评测流水线、指标统计与消融分析。</p></div>
+          <div class="mini-card"><span class="tag">Vision</span><h3>YOLOv8 / SAHI / Detection</h3><p>具备航拍小目标检测、候选筛选和视觉定位相关实践经验。</p></div>
+          <div class="mini-card"><span class="tag">Research</span><h3>阅读 / 复现 / 写作</h3><p>能够完成文献调研、基线复现、实验设计、结果可视化与论文部分撰写。</p></div>
+          <div class="mini-card"><span class="tag">Game AI</span><h3>AlphaZero / MCTS / Deep RL</h3><p>接触 AlphaZero 系列自博弈训练范式、蒙特卡洛树搜索、启发式搜索与深度强化学习实验分析。</p></div>
+          <div class="mini-card"><span class="tag">Collaboration</span><h3>团队协作与项目推进</h3><p>在科研、竞赛、课程和学生工作并行中保持稳定执行，能承担明确模块任务。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>联系方式</h2>
+            <p>欢迎就科研实习、硕士推免、UAV-VLN、多模态空间推理、目标定位、深度强化学习与机器博弈相关方向交流。</p>
+          </div>
+          <div class="contact-links">
+            <a class="button primary" href="mailto:liuRainz@163.com">liuRainz@163.com</a>
+            <a class="button" href="tel:18615460658">186-1546-0658</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 刘雨泽 · Northeastern University</span>
+      <span>Last updated: 2026.05 · Academic version</span>
+    </div>
+  </footer>
+</body>
+</html>
